@@ -7,11 +7,12 @@ import lombok.Setter;
 
 @Data
 @Entity
+@SequenceGenerator(name = "seq_tb_todo", sequenceName = "seq_tb_todo", allocationSize = 1)
 @Table(name = "tb_todo", schema = "todolist")
 public class Todo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_tb_todo")
     @Column(name = "seq_todo")
     private Long id;
 
